@@ -8,7 +8,6 @@ using namespace std;
 string Generator(const char alphabet[], int length) {
 	string gen;
 	for (int i = 0; i < length; i++) {
-		// ��������� ��������� ������ �� alphabet � ������
 		gen += alphabet[rand() % 62];
 	}
 	return gen;
@@ -36,7 +35,7 @@ int main()
 	cout << "Hello, Whats length password do u want?: ";
 	cin >> UserLength;
 	if (UserLength <= 0) {
-		cout << "������������ �����!" << endl;
+		cout << "Pass length cant be <=0!" << endl;
 		return 1;
 	}
 
