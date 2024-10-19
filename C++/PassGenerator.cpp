@@ -8,7 +8,7 @@ using namespace std;
 string Generator(const char alphabet[], int length) {
 	string gen;
 	for (int i = 0; i < length; i++) {
-		// Добавляем случайный символ из alphabet в строку
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ alphabet пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 		gen += alphabet[rand() % 62];
 	}
 	return gen;
@@ -29,15 +29,14 @@ void RandomizeArr(char arr[], char RandomArr[], const int SIZE) {
 int main()
 {
 	srand(time(NULL));
-	setlocale(LC_ALL, "Russian");
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+	SetConsoleCP(65001); // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РєРѕРґРёСЂРѕРІРєСѓ РІРІРѕРґР° UTF-8
+	SetConsoleOutputCP(65001); // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РєРѕРґРёСЂРѕРІРєСѓ РІС‹РІРѕРґР° UTF-8
 	int UserLength;
 	bool UseNum;
 	cout << "Hello, Whats length password do u want?: ";
 	cin >> UserLength;
 	if (UserLength <= 0) {
-		cout << "Некорректная длина!" << endl;
+		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!" << endl;
 		return 1;
 	}
 

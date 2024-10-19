@@ -55,9 +55,8 @@ void RandomizeArr(char arr[], char RandomArr[], const int SIZE) {
     int main()
 {
     srand(time(NULL));
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
+	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
     string input;
     cout << "Enter a prhase(Without 'Space') to encrypt: ";
     cin >> input; cout << endl;

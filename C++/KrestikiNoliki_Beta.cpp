@@ -19,9 +19,8 @@ void gameK();
 void printMatrix();
 std::vector<std::vector<int>> matrix(3, std::vector<int>(3, 0));
 int main() {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
+	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
 
     int v;
     cout << "Игра крестики-нолики. Для того чтобы начать введите [1], чтобы посмотреть инструкцию введите [2]: ";

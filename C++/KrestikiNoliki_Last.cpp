@@ -96,9 +96,8 @@ void GameK(string arr[line][col], int& End) {
     GameN(arr, End);
 }
 int main() {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
+	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
     cout << "Крестики нолики!" << endl;
     string arr[line][col];
     int Finish = 0;

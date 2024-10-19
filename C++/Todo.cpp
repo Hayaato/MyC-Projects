@@ -36,9 +36,8 @@ string encrypt(int length, char alphabet[], char revAlp[], string input) {
 	return input;
 }
 int main() {
-	setlocale(LC_ALL, "Russian");
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
+	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
 	int v;
 	cout << "Вы хотите записать новые дела (Старые будут удалены) [1], или пересмотреть старые [2],Подтвердить выполнение[3]Закончить[4]? " << endl;
 	cin >> v;
@@ -75,18 +74,19 @@ void zap() {
 		cout << "Что будем делать сегодня? "<<endl;
 		cin.ignore();
 		getline(cin, day1);
-		ofstream fday1("day1.txt", ios_base::out | ios_base::trunc);
+		ofstream fday1("Data/day1.txt", ios_base::out | ios_base::trunc);
 		if (fday1.is_open()) {
 			fday1 << day1;
 			fday1.close();
 		}
+
 		zap();
 	}
 	else if (check == 2) {
 		cout << "Что будем делать завтра? " << endl;
 		cin.ignore();
 		getline(cin, day2);
-		ofstream fday2("day2.txt", ios_base::out | ios_base::trunc);
+		ofstream fday2("Data/day2.txt", ios_base::out | ios_base::trunc);
 		if (fday2.is_open()) {
 			fday2 << day2;
 			fday2.close();
@@ -97,7 +97,7 @@ void zap() {
 		cout << "Что будем делать после-завтра? "<<endl;
 		cin.ignore();
 		getline(cin, day3);
-		ofstream fday3("day3.txt", ios_base::out | ios_base::trunc);
+		ofstream fday3("Data/day3.txt", ios_base::out | ios_base::trunc);
 		if (fday3.is_open()) {
 			fday3 << day3;
 			fday3.close();
@@ -121,17 +121,17 @@ void zap() {
 }
 void zap1() {
 	cout << "Сегодня мы должны сделать: ";
-	ifstream d1("day1.txt");
+	ifstream d1("Data/day1.txt");
 	string temp1;
 	getline(d1, temp1);
 	cout << temp1 << endl;
 	cout << "Завтра мы должны сделать: ";
-	ifstream d2("day2.txt");
+	ifstream d2("Data/day2.txt");
 	string temp2;
 	getline(d2, temp2);
 	cout << temp2 << endl;
 	cout << "После завтра мы должны сделать: ";
-	ifstream d3("day3.txt");
+	ifstream d3("Data/day3.txt");
 	string temp3;
 	getline(d3, temp3);
 	cout << temp3 << endl;
@@ -141,17 +141,17 @@ void agree() {
 	string plus = " +";
 	int check = 0;
 	cout << "Сегодня мы должны сделать: ";
-	ifstream d1("day1.txt");
+	ifstream d1("Data/day1.txt");
 	string temp1;
 	getline(d1, temp1);
 	cout << temp1 << endl;
 	cout << "Завтра мы должны сделать: ";
-	ifstream d2("day2.txt");
+	ifstream d2("Data/day2.txt");
 	string temp2;
 	getline(d2, temp2);
 	cout << temp2 << endl;
 	cout << "После завтра мы должны сделать: ";
-	ifstream d3("day3.txt");
+	ifstream d3("Data/day3.txt");
 	string temp3;
 	getline(d3, temp3);
 	d1.close();
@@ -161,7 +161,7 @@ void agree() {
 	cout << "Чтобы подтверидь выполнение,Введите [1],[2],[3].Либо [4] чтобы закончить,[5]Чтобы перейти в главное меню" << endl;
 	cin >> check;
 	if (check == 1) {
-		ofstream fday1("day1.txt", ios_base::out | ios_base::trunc);
+		ofstream fday1("Data/day1.txt", ios_base::out | ios_base::trunc);
 		if (fday1.is_open()) {
 			fday1 << temp1+"+";
 			fday1.close();
@@ -169,7 +169,7 @@ void agree() {
 		}
 	}
 	else if(check==2) {
-		ofstream fday2("day2.txt", ios_base::out | ios_base::trunc);
+		ofstream fday2("Data/day2.txt", ios_base::out | ios_base::trunc);
 		if (fday2.is_open()) {
 			fday2 << temp2 + "+";
 			fday2.close();
@@ -177,7 +177,7 @@ void agree() {
 		}		
 	}
 	else if (check == 3) {
-		ofstream fday3("day3.txt", ios_base::out | ios_base::trunc);
+		ofstream fday3("Data/day3.txt", ios_base::out | ios_base::trunc);
 		if (fday3.is_open()) {
 			fday3 << temp3 + "+";
 			fday3.close();

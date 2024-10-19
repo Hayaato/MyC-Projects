@@ -12,10 +12,9 @@ string sim;
 float f;
 float s;
 int main() {
-	setlocale(LC_ALL, "Russian");
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	cout << "Выберите действие(+,-,*,/)" << endl;
+	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
+	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
+	cout << "Выберите действие1(+,-,*,/)" << endl;
 
 	cin >> sim;
 	if (sim != "+" && sim != "-" && sim != "*" && sim != "/") {

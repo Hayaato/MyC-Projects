@@ -43,9 +43,8 @@ void pop_back(int*& arr, int& size) {
   
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
+	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
     
     int value = 1;
     int size = 5;

@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <chrono>
 #include <string>
+#include <windows.h>
 using namespace std;
 void RandomArr(int arr[], const int SIZE) {
 	for (int i = 0; i < SIZE; i++) {
@@ -41,7 +42,8 @@ int main()
 {	
 	
 	srand(time(NULL));
-	setlocale(LC_ALL, "Russian");
+	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
+	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
 	cout << "Введите длину массива 1" << endl;
 	int lenth1;
 	cin >> lenth1;
