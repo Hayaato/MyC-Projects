@@ -1,2 +1,4 @@
-/Data/
-/build/
+/Data/*
+/build/*
+!/Data/.gitignore
+!/build/.gitignore
