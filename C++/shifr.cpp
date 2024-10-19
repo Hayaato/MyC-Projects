@@ -55,12 +55,11 @@ int main() {
     SetConsoleOutputCP(65001);
 
     string input;
-    cout << "Введите фразу (без пробелов) для шифрования: ";
+    cout << "Enter phrase (without'Space') to encrypt: ";
     cin >> input;
     cout << endl;
 
     int length = input.length();
-    cout << length << endl;
 
     char alphabetOrig[] = {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
