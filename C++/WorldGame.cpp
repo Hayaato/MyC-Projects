@@ -6,17 +6,18 @@
 using namespace std;
 
 string RandomArr(string *words[]){
-    return words[rand() %3][rand()%199];
+    return words[rand() %3][rand()%156];
 }
 
-void Game(string *wordArrays[], int score, auto start_time) { 
+void Game(string *wordArrays[], int score, std::chrono::time_point<std::chrono::steady_clock> start_time) { 
     string user;
-    string word = RandomArr(wordArrays);
-    cout << "Repeat this word: " << word << endl;
+    string words = RandomArr(wordArrays);
+    //string word = RandomArr(wordArrays);
+    cout << "Repeat this word: " << words << endl;
     cin >> user;
     cout << endl;
 
-    if(user == word) {
+    if(user == words) {
         cout << "Perfect!" << endl;
         score++;
         cout << "Your score is: " << score << endl;
@@ -27,8 +28,8 @@ void Game(string *wordArrays[], int score, auto start_time) {
     }
 
     if(score == 10) {
-        auto end_time = chrono::steady_clock::now();
-        auto elapsed_sec = chrono::duration_cast<chrono::seconds>(end_time - start_time); 
+        std::chrono::time_point<std::chrono::steady_clock> end_time = chrono::steady_clock::now();
+        std::chrono::duration<double> elapsed_sec = chrono::duration_cast<chrono::seconds>(end_time - start_time);
         cout << "You win in: " << elapsed_sec.count() << " seconds!" << endl; 
     }
     else{
@@ -39,7 +40,7 @@ void Game(string *wordArrays[], int score, auto start_time) {
 int main() {
     int score = 0; 
     srand(time(NULL));
-    string words_light[200] = {
+    string words_light[181] = {
     "Ant", "Bat", "Cup", "Dog", "Ear", "Fish", "Gate", "Hat", "Ice", "Jam", 
     "Key", "Leg", "Map", "Net", "Owl", "Pen", "Quill", "Rat", "Sun", "Top", 
     "Up", "Van", "Web", "Xray", "Yarn", "Zoo", "Apple", "Book", "Car", 
@@ -62,7 +63,7 @@ int main() {
     "Net", "Orange", "Pen", "Queen", "Rat", "Sock", "Top", "Umbrella", 
     "Vase", "Water", "Xylophone", "Yarn", "Zebra"
 };
-    string words_medium[200] = {
+    string words_medium[182] = {
         "Apple", "Ball", "Cat", "Dog", "Eagle", "Forest", "Grape", "House", "Igloo", "Jungle",
         "Kite", "Lion", "Mouse", "Noble", "Ocean", "Piano", "Queen", "River", "Sun", "Tree",
         "Unicorn", "Vase", "Wolf", "Xylophone", "Yellow", "Zebra", "Artist", "Brave", "Circle", 
@@ -84,7 +85,7 @@ int main() {
         "Jewel", "Keen", "Lush", "Mirth", "Nest", "Orchid", "Pulse", "Quake", "Rope", 
         "Spire", "Tome", "Unity", "Vault", "Wisp", "Xenon", "Yield", "Zone"
     };
-    string words_hard[200] = {
+    string words_hard[156] = {
     "Algorithm", "Binary", "Cipher", "Dystopia", "Entropy", "Fractal", "Genome", 
     "Heuristic", "Isotope", "Jargon", "Kinetics", "Lagrange", "Matrix", "Neutron", 
     "Oscillation", "Paradox", "Quantum", "Relativity", "Singularity", "Topology", 
@@ -113,7 +114,7 @@ int main() {
     SetConsoleOutputCP(65001); 
     cout << "Hello, it's Word Game!" << endl;
     cout << "You need to repeat the word to win!" << endl;
-    auto start_time = chrono::steady_clock::now();
+    std::chrono::time_point<std::chrono::steady_clock> start_time = chrono::steady_clock::now();
     string *wordArrays[] = {words_light, words_medium, words_hard};
     Game(wordArrays, score, start_time);
 }
