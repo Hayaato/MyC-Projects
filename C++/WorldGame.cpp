@@ -12,7 +12,6 @@ string RandomArr(string *words[]){
 void Game(string *wordArrays[], int score, std::chrono::time_point<std::chrono::steady_clock> start_time) { 
     string user;
     string words = RandomArr(wordArrays);
-    //string word = RandomArr(wordArrays);
     cout << "Repeat this word: " << words << endl;
     cin >> user;
     cout << endl;
