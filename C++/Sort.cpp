@@ -42,10 +42,10 @@ int main()
 	const int SIZE = lenth;
 	int *arr = new int[SIZE];
 	RandomArr(arr,SIZE,Random);
-	//PrintArr(arr, SIZE);
+	PrintArr(arr, SIZE);
 	cout << "сортировка" << endl;
 	SortArr(arr, SIZE);
-	//PrintArr(arr, SIZE);
+	PrintArr(arr, SIZE);
 	auto end_time = chrono::steady_clock::now();
 	auto elapsed_ns = chrono::duration_cast<chrono::milliseconds>(end_time - start_time);
 	cout << elapsed_ns.count() << " ms\n";
