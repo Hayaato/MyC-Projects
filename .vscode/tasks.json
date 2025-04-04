@@ -2,11 +2,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "C++ Build",
+            "label": "build",
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g",
                 "${file}",
                 "-o",
                 "${workspaceFolder}/build/${fileBasenameNoExtension}.exe"
@@ -15,7 +14,7 @@
             "problemMatcher": [
                 "$gcc"
             ],
-            "detail": "Generated task by Debugger."
+            "detail": "Компиляция с выводом в папку build"
         },
         {
             "type": "cppbuild",
@@ -26,7 +25,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\build\\${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}/C++/build/${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
