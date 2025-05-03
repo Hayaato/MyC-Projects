@@ -4,7 +4,7 @@
 #include <windows.h>
 using namespace std;
 void s1();
-void next();
+int next();
 void math();
 int b;
 float res;
@@ -44,13 +44,14 @@ void math(){
 	cout << "Число равно: " << res << endl;
 	next();
 }
-void next(){
+int next(){
 	cout << "Выберите действие:Продолжить[1],Закончить[2]" << endl;
 	cin >> b;
 	if (b == 1) {
 		main();
 	}
 	else if (b == 2) {
+		return 0;
 	}
 	else {
 		cout << "Введите корректное число" << endl;

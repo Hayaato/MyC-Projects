@@ -20,6 +20,7 @@ void Game(string *wordArrays[], int score, std::chrono::time_point<std::chrono::
         cout << "Perfect!" << endl;
         score++;
         cout << "Your score is: " << score << endl;
+        
     } else {
         cout << "Pum-Pum-Pum..." << endl;
         score--;
