@@ -7,14 +7,13 @@ void s1();
 int next();
 void math();
 int b;
-float res;
 string sim;
-float f;
-float s;
+float f, s, res;
+
 int main() {
 	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
 	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
-	cout << "Выберите действие1(+,-,*,/)" << endl;
+	cout << "Выберите действие(+,-,*,/)" << endl;
 
 	cin >> sim;
 	if (sim != "+" && sim != "-" && sim != "*" && sim != "/") {

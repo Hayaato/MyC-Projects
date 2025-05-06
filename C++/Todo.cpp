@@ -7,34 +7,6 @@ using namespace std;
 void zap();
 void zap1();
 void agree();
-string decrypt(int length, char alphabet[], char revAlp[], string input) {
-	for (int i = 0; i < length; i++) {
-		char temp = input[i];
-		for (int j = 0; j < 52; j++) {
-			if (temp == revAlp[j]) {
-				input[i] = alphabet[j];
-
-			}
-
-
-		}
-	}
-	return input;
-}
-string encrypt(int length, char alphabet[], char revAlp[], string input) {
-	for (int i = 0; i < length; i++) {
-		char temp = input[i];
-		for (int j = 0; j < 52; j++) {
-			if (temp == alphabet[j]) {
-				input[i] = revAlp[j];
-
-			}
-
-
-		}
-	}
-	return input;
-}
 int main() {
 	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
 	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8

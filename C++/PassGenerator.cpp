@@ -22,7 +22,7 @@ int main()
 	bool UseNum;
 	cout << "Hello, Whats length password do u want?: ";
 	cin >> UserLength;
-	if (UserLength <= 0) {
+	if (UserLength <= 0 ) {
 		cout << "Pass length cant be >= 0!" << endl;
 		return 1;
 	}
