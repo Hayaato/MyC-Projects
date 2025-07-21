@@ -25,15 +25,10 @@ void moving(char Way,int PlayerPosition[2],const int ROWS,const int COLS,char ar
         
     }
 }
-int Refresh(int prizearr[2],int PlayerPosition[2],const int ROWS,const int COLS,char arr[15][40]){
+void Refresh(int PlayerPosition[2],const int ROWS,const int COLS,char arr[15][40]){
     int X = PlayerPosition[0];
     int Y = PlayerPosition[1];
     arr[X][Y] = '*';
-    if (PlayerPosition[0] == prizearr[0] && PlayerPosition[1] == prizearr[1]) {
-        return 1;
-    }
-    return 0;
-
 }
 void PrintArr(const int ROWS,const int COLS,char arr[15][40]){
     for (int i = 0; i < ROWS; i++) {
@@ -44,20 +39,11 @@ void PrintArr(const int ROWS,const int COLS,char arr[15][40]){
     }
 
 }
-void FillArr(int prizearr[2],const int ROWS,const int COLS, char arr[15][40]){
+void FillArr(const int ROWS,const int COLS, char arr[15][40]){
     for(int i=0;i<ROWS;i++){
         for(int j=0;j<COLS;j++){
             arr[i][j] = '-';
         }
-    }
-    int X = prizearr[0];
-    int Y = prizearr[1];
-    if (X == 7 && Y == 15) {
-        X = rand() % 15;
-        Y = rand() % 30;
-    }
-    else{
-        arr[X][Y] = '$';
     }
 }
 int main(){
@@ -68,12 +54,10 @@ int main(){
     char matrix[ROWS][COLS];
     int PlayerPosition[2] = {7, 20};
     char Way;
-    int PrizeArr[2] = {rand() % 15, 40};
-    int ext = 0;
     
-    while (ext == 0){
-    FillArr(PrizeArr,ROWS, COLS, matrix);
-    ext = Refresh(PrizeArr,PlayerPosition, ROWS, COLS, matrix);
+    while (true){
+    FillArr(ROWS, COLS, matrix);
+    Refresh(PlayerPosition, ROWS, COLS, matrix);
     PrintArr(ROWS, COLS, matrix);
     cin >> Way;
     moving(Way,PlayerPosition, ROWS, COLS, matrix);
