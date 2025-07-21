@@ -8,23 +8,26 @@
 #include <vector>
 
 using namespace std;
-void moving(char Way,int PlayerPosition[2],const int ROWS,const int COLS,char arr[15][40]){
-    if(Way == 'W'|| Way == 'w'){
-        PlayerPosition[0]--;
+
+void moving(char Way, int PlayerPosition[2], const int ROWS, const int COLS, char arr[15][40]) {
+    if (Way == 'W' || Way == 'w') {
+        if (PlayerPosition[0] > 0)
+            PlayerPosition[0]--;
     }
-    else if(Way == 'A'||Way == 'a'){
-        PlayerPosition[1]--;
+    else if (Way == 'A' || Way == 'a') {
+        if (PlayerPosition[1] > 0)
+            PlayerPosition[1]--;
     }
-    else if(Way == 'S'||Way == 's'){
-        PlayerPosition[0]++;
+    else if (Way == 'S' || Way == 's') {
+        if (PlayerPosition[0] < ROWS - 1)
+            PlayerPosition[0]++;
     }
-    else if(Way == 'D'||Way == 'd'){
-        PlayerPosition[1]++;
-    }
-    else{
-        
+    else if (Way == 'D' || Way == 'd') {
+        if (PlayerPosition[1] < COLS - 1)
+            PlayerPosition[1]++;
     }
 }
+
 void Refresh(int PlayerPosition[2],const int ROWS,const int COLS,char arr[15][40]){
     int X = PlayerPosition[0];
     int Y = PlayerPosition[1];
@@ -37,7 +40,6 @@ void PrintArr(const int ROWS,const int COLS,char arr[15][40]){
         }
         cout << endl;
     }
-
 }
 void FillArr(const int ROWS,const int COLS, char arr[15][40]){
     for(int i=0;i<ROWS;i++){
@@ -61,11 +63,8 @@ int main(){
     PrintArr(ROWS, COLS, matrix);
     cin >> Way;
     moving(Way,PlayerPosition, ROWS, COLS, matrix);
-
     }
-    
     //     W
     //   A * D
     //     S
 }
-
