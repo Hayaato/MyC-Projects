@@ -8,32 +8,28 @@ void zap();
 void zap1();
 void agree();
 int main() {
-	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
-	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
 	int v;
 	cout << "Вы хотите записать новые дела (Старые будут удалены) [1], или пересмотреть старые [2],Подтвердить выполнение[3]Закончить[4]? " << endl;
 	cin >> v;
-	if (v == 1) {
+	switch(v){
+	case 1:
 		zap();
-	}
-	else if (v == 2) {
+		break;
+	case 2:
 		zap1();
-	}
-	else if (v == 3) {
+		break;
+	case 3:
 		agree();
-
-	}
-	else if (v == 4) {
+		break;
+	case 4:
 		cout << "Заканчиваю...";
 		exit(0);
-
-	}
-
-	else {
+	default:
 		cout << "Введите 1,2,3,4";
 		exit(0);
 	}
-
 	return 0;
 }
 
@@ -42,7 +38,8 @@ void zap() {
 	int check;
 	cout<<"Введите [1]Чтобы записать дела на сегодня,[2]Завтра[3]После-завтра[4]Выйти в главное меню[5]Закончить" << endl;
 	cin >> check;
-	if (check == 1) {
+	switch(check){
+	case 1: {
 		cout << "Что будем делать сегодня? "<<endl;
 		cin.ignore();
 		getline(cin, day1);
@@ -51,10 +48,10 @@ void zap() {
 			fday1 << day1;
 			fday1.close();
 		}
-
 		zap();
+		break;
 	}
-	else if (check == 2) {
+	case 2: {
 		cout << "Что будем делать завтра? " << endl;
 		cin.ignore();
 		getline(cin, day2);
@@ -64,8 +61,9 @@ void zap() {
 			fday2.close();
 		}
 		zap();
+		break;
 	}
-	else if (check == 3) {
+	case 3: {
 		cout << "Что будем делать после-завтра? "<<endl;
 		cin.ignore();
 		getline(cin, day3);
@@ -75,21 +73,19 @@ void zap() {
 			fday3.close();
 		}
 		zap();
+		break;
 	}
-	else if (check == 4) {
+	case 4:
 		main();
-	}
-	else if (check == 5) {
+		break;
+	case 5:
 		cout << "Заканчиваю...";
 		exit(0);
-	}
-	else {
+	default:
 		cout << "Введите корректное число" << endl;
 		main();
 	}
 	main();
-
-
 }
 void zap1() {
 	cout << "Сегодня мы должны сделать: ";
@@ -132,38 +128,41 @@ void agree() {
 	cout << temp3 << endl;
 	cout << "Чтобы подтверидь выполнение,Введите [1],[2],[3].Либо [4] чтобы закончить,[5]Чтобы перейти в главное меню" << endl;
 	cin >> check;
-	if (check == 1) {
+	switch(check){
+	case 1: {
 		ofstream fday1("Data/day1.txt", ios_base::out | ios_base::trunc);
 		if (fday1.is_open()) {
 			fday1 << temp1+"+";
 			fday1.close();
 			agree();
 		}
+		break;
 	}
-	else if(check==2) {
+	case 2: {
 		ofstream fday2("Data/day2.txt", ios_base::out | ios_base::trunc);
 		if (fday2.is_open()) {
 			fday2 << temp2 + "+";
 			fday2.close();
 			agree();
-		}		
+		}
+		break;
 	}
-	else if (check == 3) {
+	case 3: {
 		ofstream fday3("Data/day3.txt", ios_base::out | ios_base::trunc);
 		if (fday3.is_open()) {
 			fday3 << temp3 + "+";
 			fday3.close();
 			agree();
 		}
+		break;
 	}
-	else if (check == 4) {
+	case 4:
 		cout << "Завершение...";
 		exit(0);
-	}
-	else if (check == 5) {
+	case 5:
 		main();
-	}
-	else{
+		break;
+	default:
 		cout << "Введите корректное значение" << endl;
 		main();
 	}

@@ -55,7 +55,7 @@ int main() {
     SetConsoleOutputCP(65001);
 
     string input;
-    cout << "Enter phrase (without'Space') to encrypt: ";
+    cout << "Enter phrase (without 'Space') to encrypt: ";
     cin >> input;
     cout << endl;
 
