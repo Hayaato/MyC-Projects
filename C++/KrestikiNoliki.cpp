@@ -13,11 +13,23 @@ int f;
 int s;
 
 using namespace std;
+int main();
 bool checkWin(int player);
 void gameN();
 void gameK();
 void printMatrix();
 std::vector<std::vector<int>> matrix(3, std::vector<int>(3, 0));
+void WrongAnswer(int v){
+    cout << "Введите 1 или 2" << endl;
+    cin >> v;
+}
+void menu2(){
+        cout << "Чтобы выиграть нужно собрать 3 крестика или нолика в ряд. Ход начинают крестом. Введите сначала ряд по вертикале, а затем по горизонтали, где 0 - первая строка, а 2 - последняя." << endl;
+        chrono::seconds duration(3);
+        this_thread::sleep_for(duration);
+        system("cls");
+        main();
+}
 int main() {
 	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
 	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
@@ -26,40 +38,28 @@ int main() {
     cout << "Игра крестики-нолики. Для того чтобы начать введите [1], чтобы посмотреть инструкцию введите [2]: ";
     cin >> v;
 
-    if (v == 1) {
+    switch(v) {
+    case 1:
         printMatrix();
         gameK();
-    }
-    else if (v == 2) {
-        cout << "Чтобы выиграть нужно собрать 3 крестика или нолика в ряд. Ход начинают крестом. Введите сначала ряд по вертикале, а затем по горизонтали, где 0 - первая строка, а 2 - последняя." << endl;
-        chrono::seconds duration(3);
-        this_thread::sleep_for(duration);
-        system("cls");
-        main();
-    }
-    else {
-        cout << "Введите 1 или 2" << endl;
-        cin >> v;
-        if (v == 1) {
+    
+    case  2: 
+        menu2();
+    
+    default:
+        WrongAnswer(v);
+        switch(v){
+        case 1:
             gameK();
-        }
-        else if (v == 2) {
-            cout << "Чтобы выиграть нужно собрать 3 крестика или нолика в ряд. Ход начинают крестом. Введите сначала ряд по вертикале, а затем по горизонтали, где 0 - первая строка, а 2 - последняя." << endl;
-            chrono::seconds duration(3);
-            this_thread::sleep_for(duration);
-            system("cls");
+        
+        case 2: 
+            menu2();
+        
+        default:
+            WrongAnswer(v);
             main();
         }
-        else {
-            cout << "Введите 1 или 2" << endl;
-            cin >> v;
-
-
-        }
-
-        
     }
-
     return 0;
 }
 

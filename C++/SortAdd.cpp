@@ -42,8 +42,8 @@ int main()
 {	
 	
 	srand(time(NULL));
-	SetConsoleCP(65001); // Устанавливает кодировку ввода UTF-8
-	SetConsoleOutputCP(65001); // Устанавливает кодировку вывода UTF-8
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
 	cout << "Введите длину массива 1" << endl;
 	int lenth1;
 	cin >> lenth1;
