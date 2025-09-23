@@ -6,30 +6,27 @@
 #include <cstdlib>
 using namespace std;
 
-string encrypt(int length, char alphabet[], char revAlp[], string input) {
+void encrypt(int length, char alphabet[], char revAlp[], string &input) {
     for (int i = 0; i < length; i++) {
-        char temp = input[i];
         for (int j = 0; j < 62; j++) {
-            if (temp == alphabet[j]) {
-                input[i] = revAlp[j];
-                break;
+            if (input[i] == alphabet[j]) {
+            input[i] = revAlp[j];
+            break;
             }
         }
     }
-    return input;
+
 }
 
-string decrypt(int length, char alphabet[], char revAlp[], string input) {
+void decrypt(int length, char alphabet[], char revAlp[], string &input) {
     for (int i = 0; i < length; i++) {
-        char temp = input[i];
         for (int j = 0; j < 62; j++) {
-            if (temp == revAlp[j]) {
-                input[i] = alphabet[j];
-                break;
+            if (input[i] == revAlp[j]) {
+            input[i] = alphabet[j];
+            break;
             }
         }
     }
-    return input;
 }
 
 void Print(char Arr[], const int SIZE) {
@@ -60,23 +57,23 @@ int main() {
     cout << endl;
 
     int length = input.length();
-
     char alphabetOrig[] = {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
     };
-
+    cout << length << endl;
     char alphabet[62];
     RandomizeArr(alphabetOrig, alphabet, 62);
 
     cout << input << endl;
 
-    input = encrypt(length, alphabet, alphabetOrig, input);
+    encrypt(length, alphabet, alphabetOrig, input);
     cout << input << endl;
 
-    input = decrypt(length, alphabet, alphabetOrig, input);
+    decrypt(length, alphabet, alphabetOrig, input);
     cout << input << endl;
 
     Print(alphabet, 62);
+    Print(alphabetOrig, 62);
 }
